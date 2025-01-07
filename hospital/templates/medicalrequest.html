@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Requests</title>
+</head>
+<body>
+    <h2>Medical Requests</h2>
+    <ul>
+        {% for request in medical_requests %}
+            <li>
+                <strong>External Name:</strong> {{ request.external.name }} <br>
+                <strong>Doctor:</strong> {{ request.doctor.doctor.name }} <br>
+                <strong>Prescription:</strong> {{ request.doctor.prescription }} <br>
+            </li>
+        {% empty %}
+            <p>No medical requests found.</p>
+        {% endfor %}
+    </ul>
+</body>
+</html>

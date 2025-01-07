@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointments</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f8fb;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Header */
+        header {
+            background-color: #2C3E50;
+            color: #fff;
+            padding: 15px 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #34495E;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav ul li a:hover {
+            color: #1abc9c;
+            text-decoration: underline;
+        }
+
+        /* Main Section */
+        .main-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ul li {
+            background-color: #fff;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        ul li strong {
+            font-weight: bold;
+            color: #2C3E50;
+        }
+
+        /* Table for Appointments */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table th, table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        table th {
+            background-color: #2C3E50;
+            color: #fff;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #ecf0f1;
+        }
+
+        table tr:hover {
+            background-color: #1abc9c;
+            color: #fff;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2C3E50;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 16px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Button Styles */
+        button {
+            background-color: #1abc9c;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #16a085;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            table th, table td {
+                padding: 8px;
+            }
+
+            header h1 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+        <ul>
+            {% for appointment in doc %}
+                <li>
+                    <ul><strong>Patient Name:</strong> {{ appointment.patient.name }}</ul>
+                    <ul><strong>Doctor Name:</strong> {{ appointment.doctor.name }}</ul>
+                    <ul><strong>Appointment Date:</strong> {{ appointment.date }}</ul>
+                    <ul><strong>Symptoms:</strong> {{ appointment.symptoms }}</ul>
+                    <ul><strong>Status:</strong> {{ appointment.status }}</ul>
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Appointment Management</p>
+    </footer>
+</body>
+</html>
